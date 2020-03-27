@@ -1,7 +1,7 @@
 from selenium import webdriver
 from time import sleep
 
-#do this through chrome
+#do this through firefox
 driver = webdriver.Firefox()
 
 #get the page
