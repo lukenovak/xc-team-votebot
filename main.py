@@ -43,6 +43,7 @@ while True:
             if exception_count < 3:
                 print("there was some sort of exception! Sleeping for 30 seconds then retrying...")
                 sleep(30)
+                driver.refresh() #if it gets stuck on the wrong page, go back to the intial voting page
             else:
                 print("got tree consecutive exceptions- the server is likely moved or down. Exiting...")
                 break
@@ -50,5 +51,6 @@ while True:
     #sleep for 2 minutes if we are ahead by too much before checking again
     else:
         sleep(120)
+        score_tracker.refresh()
         current_score_text = score_tracker.find_element_by_css_selector('#c0 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > svg:nth-child(1) > g:nth-child(4) > text:nth-child(2)').text
         current_score = float(current_score_text.strip('%'))
