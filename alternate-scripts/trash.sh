@@ -1,4 +1,10 @@
 while true
 do
-    curl 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSd8xTc3qCMny2MroWd_TVbVoZ79G3HYeDEgwCNFKoWXirGrqA/formResponse'  --data 'entry.807910780=Women%27s+Cross+Country+-+Wise+Runs+into+Record+Book&fvv=1&draftResponse=%5Bnull%2Cnull%2C%229098056647003986476%22%5D%0D%0A&pageHistory=0&fbzx=9098056647003986476'
+    while [ `jobs | wc -l` -ge 50 ] 
+    do 
+        echo 'waiting to spawn more processes'
+        sleep 1 
+    done
+
+    curl 'https://nuhuskies.com/services/get_polls.ashx' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0' -H 'Accept: application/json, text/javascript, */*; q=0.01' --data 'poll_id=11&answer=WXC+-+Louiza+Wise' &
 done
